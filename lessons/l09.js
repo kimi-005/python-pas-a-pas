@@ -28,7 +28,7 @@
         ["L.index(x)", { fr: "cherche le premier x", en: "finds the first x" }, { fr: "son index", en: "its index" }],
         ["L.sort()", { fr: "trie L (L est modifiée)", en: "sorts L (L is changed)" }, { fr: "rien", en: "nothing" }]
       ] },
-    { t: "code", code: "L = [1, 3, 5, 2, 7, 2, 9]\nL.append(4)\nprint(L)\nL.remove(2)\nprint(L)\nprint(L.pop(2))\nprint(L)" },
+    { t: "code", code: "L = [1, 3, 5, 2, 7, 2, 9]\nL.append(4)\nL\nL.remove(2)\nL\nL.pop(2)\nL" },
     { t: "note",
       fr: "<strong>Rappel :</strong> <code>sorted(L)</code> renvoie une copie triée sans toucher à L, alors que <code>L.sort()</code> trie L elle-même.",
       en: "<strong>Reminder:</strong> <code>sorted(L)</code> returns a sorted copy without touching L, while <code>L.sort()</code> sorts L itself." },
@@ -37,10 +37,10 @@
     { t: "p",
       fr: "C'est l'usage le plus fréquent en maths : on part d'une liste vide <code>[]</code> et on ajoute un élément à chaque tour de boucle avec <code>append</code>.",
       en: "This is the most common use in maths: start from an empty list <code>[]</code> and add one element on each pass with <code>append</code>." },
-    { t: "code", code: "carres = []\nfor k in range(1, 6):\n    carres.append(k ** 2)\nprint(carres)" },
+    { t: "code", code: "carres = []\nfor k in range(1, 6):\n    carres.append(k ** 2)\ncarres" },
 
     { t: "h", fr: "Quelques méthodes des chaînes", en: "A few string methods" },
-    { t: "code", code: "a = \"réglisse\"\nprint(a.upper())\nprint(\"USLY\".lower())\nprint(\"elisabeth\".capitalize())\nprint(a)" },
+    { t: "code", code: "a = \"réglisse\"\na.upper()\n\"USLY\".lower()\n\"elisabeth\".capitalize()\na" },
     { t: "p",
       fr: "Une chaîne ne peut pas être modifiée : <code>upper()</code> renvoie une <em>nouvelle</em> chaîne, et <code>a</code> ne change pas.",
       en: "A string can't be changed: <code>upper()</code> returns a <em>new</em> string, and <code>a</code> stays the same." }

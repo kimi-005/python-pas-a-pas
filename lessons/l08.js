@@ -9,7 +9,7 @@
     { t: "p",
       fr: "On garde cette liste tout au long de la leçon. Elle contient un entier, un flottant, un booléen, une chaîne de caractères et… une liste.",
       en: "We'll keep this list for the whole lesson. It holds an integer, a float, a boolean, a string and… a list." },
-    { t: "code", code: "L = [12, 3.7, True, \"demain\", [1, 2]]\nprint(L)\nprint(len(L))" },
+    { t: "code", code: "L = [12, 3.7, True, \"demain\", [1, 2]]\nL\nlen(L)" },
     { t: "note",
       fr: "<strong>Remarque importante :</strong> l'ordre compte. <code>[1, 2] == [2, 1]</code> est faux, et <code>[1, 2] == [1, 2, 2]</code> aussi.",
       en: "<strong>Important:</strong> order matters. <code>[1, 2] == [2, 1]</code> is false, and so is <code>[1, 2] == [1, 2, 2]</code>." },
@@ -19,16 +19,16 @@
     { t: "p",
       fr: "Le premier objet a l'index <strong>0</strong>, pas 1. On peut aussi lire la liste « à l'envers » : <code>L[-1]</code> est le dernier objet.",
       en: "The first object has index <strong>0</strong>, not 1. You can also read the list backwards: <code>L[-1]</code> is the last object." },
-    { t: "code", code: "L = [12, 3.7, True, \"demain\", [1, 2]]\nprint(L[0])\nprint(L[3])\nprint(L[-1])\nL[0] = 100\nprint(L)" },
+    { t: "code", code: "L = [12, 3.7, True, \"demain\", [1, 2]]\nL[0]\nL[3]\nL[-1]\nL[0] = 100\nL" },
 
     { t: "h", fr: "Appartenance et parcours", en: "Membership and looping" },
-    { t: "code", code: "L = [12, 3.7, True, \"demain\", [1, 2]]\nprint(3.7 in L)\nfor k in L:\n    print(k)" },
+    { t: "code", code: "L = [12, 3.7, True, \"demain\", [1, 2]]\n3.7 in L\nfor k in L:\n    print(k)" },
     { t: "p",
       fr: "<code>for k in L:</code> donne successivement à k chaque objet de la liste. C'est la façon de « passer en revue » tous les éléments.",
       en: "<code>for k in L:</code> gives k each object of the list in turn. This is how you go through all the elements." },
 
     { t: "h", fr: "Concaténation : + et *", en: "Joining lists: + and *" },
-    { t: "code", code: "print([3, 7, \"chat\"] + [-1, 2, \"chien\"])\nprint(3 * [1, 2])" },
+    { t: "code", code: "[3, 7, \"chat\"] + [-1, 2, \"chien\"]\n3 * [1, 2]" },
 
     { t: "h", fr: "Fonctions natives sur les listes", en: "Built-in functions on lists" },
     { t: "table",
@@ -40,7 +40,7 @@
         ["sorted(L)", { fr: "renvoie une copie triée (L ne change pas)", en: "returns a sorted copy (L doesn't change)" }],
         ["del L[i]", { fr: "supprime l'objet d'index i", en: "deletes the object at index i" }]
       ] },
-    { t: "code", code: "L = [1, 3, 2]\nM = sorted(L)\nprint(M)\nprint(L)" },
+    { t: "code", code: "L = [1, 3, 2]\nM = sorted(L)\nM\nL" },
     { t: "note",
       fr: "<code>sorted(L)</code> ne modifie pas la liste de départ : elle ne modifie pas l'antécédent ! Dans la leçon 9, la méthode <code>L.sort()</code>, elle, modifiera L.",
       en: "<code>sorted(L)</code> doesn't change the original list: it doesn't change its input! In lesson 9, the method <code>L.sort()</code> will change L." }

@@ -15,7 +15,7 @@
         [{ fr: "une inégalité stricte", en: "strictly less / greater" }, "<   >", "3 < 4"],
         [{ fr: "une inégalité large", en: "less / greater or equal" }, "<=   >=", "5 <= 6"]
       ] },
-    { t: "code", code: "print(2 == 3)\nprint(2 != 3)\nprint(3 < 4)" },
+    { t: "code", code: "2 == 3\n2 != 3\n3 < 4" },
     { t: "note",
       fr: "<strong>Très important :</strong> <code>=</code> affecte une valeur à une variable, <code>==</code> compare deux valeurs.",
       en: "<strong>Very important:</strong> <code>=</code> assigns a value to a variable, <code>==</code> compares two values." },
@@ -24,16 +24,16 @@
     { t: "p",
       fr: "<code>A and B</code> est vrai quand A et B sont vrais tous les deux. <code>A or B</code> est vrai dès qu'au moins l'un des deux est vrai.",
       en: "<code>A and B</code> is true when both A and B are true. <code>A or B</code> is true as soon as at least one of them is true." },
-    { t: "code", code: "print(2 == 3 or 2 < 3)\nprint(2 == 3 and 2 < 3)" },
+    { t: "code", code: "2 == 3 or 2 < 3\n2 == 3 and 2 < 3" },
 
     { t: "h", fr: "Appartenance : in, not in", en: "Membership: in, not in" },
-    { t: "code", code: "L = [5, 6, 1, 4]\nprint(8 in L)\nprint(8 not in L)" },
+    { t: "code", code: "L = [5, 6, 1, 4]\n8 in L\n8 not in L" },
 
     { t: "h", fr: "Tester la divisibilité", en: "Testing divisibility" },
     { t: "p",
       fr: "Un entier n est divisible par d quand le reste de la division de n par d est nul : <code>n % d == 0</code>.",
       en: "An integer n is divisible by d when the remainder of n divided by d is zero: <code>n % d == 0</code>." },
-    { t: "code", code: "n = 2026\nprint(n % 2 == 0)\nprint(n % 3 == 0)" }
+    { t: "code", code: "n = 2026\nn % 2 == 0\nn % 3 == 0" }
   ],
   exercises: [
     { t: "predict", id: "l03-p1",
@@ -61,8 +61,8 @@
       ] },
     { t: "code", id: "l03-c1",
       title: { fr: "Pair ou impair ?", en: "Even or odd?" },
-      prompt: { fr: "La variable <code>n</code> est déjà définie. Avec un seul <code>print</code> et sans <code>if</code>, affiche <code>True</code> si n est pair, <code>False</code> sinon.",
-                en: "The variable <code>n</code> is already defined. With a single <code>print</code> and no <code>if</code>, print <code>True</code> if n is even, <code>False</code> otherwise." },
+      prompt: { fr: "La variable <code>n</code> est déjà définie. Écris un test (une seule ligne, sans <code>if</code>) qui vaut <code>True</code> si n est pair, <code>False</code> sinon.",
+                en: "The variable <code>n</code> is already defined. Write a test (one line, no <code>if</code>) whose value is <code>True</code> if n is even, <code>False</code> otherwise." },
       starter: { fr: "# n est déjà définie\n", en: "# n is already defined\n" },
       tests: [
         { setup: "n = 2026", stdout: "True" },
@@ -70,13 +70,13 @@
         { setup: "n = 0", stdout: "True" }
       ],
       require: ["%"], forbid: ["if"],
-      hint: { fr: "Un test renvoie déjà True ou False : affiche directement le test <code>n % 2 == 0</code>.",
-              en: "A test already returns True or False: print the test <code>n % 2 == 0</code> directly." },
-      solution: "print(n % 2 == 0)" },
+      hint: { fr: "Un test vaut déjà True ou False : écris simplement <code>n % 2 == 0</code>.",
+              en: "A test is already True or False: simply write <code>n % 2 == 0</code>." },
+      solution: "n % 2 == 0" },
     { t: "code", id: "l03-c2",
       title: { fr: "Dans le disque unité ?", en: "Inside the unit disc?" },
-      prompt: { fr: "Les variables <code>x</code> et <code>y</code> sont définies. Affiche <code>True</code> si le point M(x ; y) est dans le disque de centre O et de rayon 1 (bord compris), c'est-à-dire si x² + y² ≤ 1, et <code>False</code> sinon.",
-                en: "The variables <code>x</code> and <code>y</code> are defined. Print <code>True</code> if the point M(x ; y) is inside the disc with centre O and radius 1 (edge included), that is if x² + y² ≤ 1, and <code>False</code> otherwise." },
+      prompt: { fr: "Les variables <code>x</code> et <code>y</code> sont définies. Écris un test qui vaut <code>True</code> si le point M(x ; y) est dans le disque de centre O et de rayon 1 (bord compris), c'est-à-dire si x² + y² ≤ 1, et <code>False</code> sinon.",
+                en: "The variables <code>x</code> and <code>y</code> are defined. Write a test whose value is <code>True</code> if the point M(x ; y) is inside the disc with centre O and radius 1 (edge included), that is if x² + y² ≤ 1, and <code>False</code> otherwise." },
       starter: { fr: "# x et y sont déjà définies\n", en: "# x and y are already defined\n" },
       tests: [
         { setup: "x = 0.5\ny = 0.5", stdout: "True" },
@@ -84,9 +84,9 @@
         { setup: "x = 0\ny = -1", stdout: "True" },
         { setup: "x = 0.8\ny = 0.7", stdout: "False" }
       ],
-      hint: { fr: "x² s'écrit <code>x ** 2</code>. Affiche le test <code>x ** 2 + y ** 2 <= 1</code>.",
-              en: "x² is <code>x ** 2</code>. Print the test <code>x ** 2 + y ** 2 <= 1</code>." },
-      solution: "print(x ** 2 + y ** 2 <= 1)",
+      hint: { fr: "x² s'écrit <code>x ** 2</code>. Le test est <code>x ** 2 + y ** 2 <= 1</code>.",
+              en: "x² is <code>x ** 2</code>. The test is <code>x ** 2 + y ** 2 <= 1</code>." },
+      solution: "x ** 2 + y ** 2 <= 1",
       after: { fr: "Tu retrouveras ce test en terminale pour estimer π au hasard (méthode de Monte-Carlo).",
                en: "You'll meet this test again later, to estimate π with random points (Monte Carlo method)." } }
   ],
@@ -99,8 +99,8 @@
         "en": "Leap year"
       },
       "prompt": {
-        "fr": "Une année est bissextile si elle est divisible par 4 mais pas par 100, ou si elle est divisible par 400. La variable <code>annee</code> est définie : affiche <code>True</code> si elle est bissextile, <code>False</code> sinon, avec un seul <code>print</code> et sans <code>if</code>.",
-        "en": "A year is a leap year if it's divisible by 4 but not by 100, or if it's divisible by 400. The variable <code>annee</code> is defined: print <code>True</code> if it's a leap year, <code>False</code> otherwise, with a single <code>print</code> and no <code>if</code>."
+        "fr": "Une année est bissextile si elle est divisible par 4 mais pas par 100, ou si elle est divisible par 400. La variable <code>annee</code> est définie : écris un test (une seule ligne, sans <code>if</code>) qui vaut <code>True</code> si elle est bissextile, <code>False</code> sinon.",
+        "en": "A year is a leap year if it's divisible by 4 but not by 100, or if it's divisible by 400. The variable <code>annee</code> is defined: write a test (one line, no <code>if</code>) whose value is <code>True</code> if it's a leap year, <code>False</code> otherwise."
       },
       "starter": {
         "fr": "# annee est déjà définie\n",
@@ -146,11 +146,11 @@
           "en": "\"not divisible by 100\" is <code>annee % 100 != 0</code>. Join the pieces with <code>and</code> and <code>or</code>."
         },
         {
-          "fr": "Mets des parenthèses pour bien grouper : <code>print((… and …) or …)</code>.",
-          "en": "Use brackets to group things properly: <code>print((… and …) or …)</code>."
+          "fr": "Mets des parenthèses pour bien grouper : <code>(… and …) or …</code>.",
+          "en": "Use brackets to group things properly: <code>(… and …) or …</code>."
         }
       ],
-      "solution": "print((annee % 4 == 0 and annee % 100 != 0) or annee % 400 == 0)",
+      "solution": "(annee % 4 == 0 and annee % 100 != 0) or annee % 400 == 0",
       "after": {
         "fr": "1900 n'était pas bissextile, mais 2000 l'était.",
         "en": "1900 wasn't a leap year, but 2000 was."
@@ -164,8 +164,8 @@
         "en": "Three points in a line?"
       },
       "prompt": {
-        "fr": "Les coordonnées de trois points A, B et C sont dans les variables <code>xA</code>, <code>yA</code>, <code>xB</code>, <code>yB</code>, <code>xC</code>, <code>yC</code>. Affiche <code>True</code> si A, B et C sont alignés, <code>False</code> sinon, sans <code>if</code>. Rappel : ils sont alignés quand les vecteurs AB et AC sont colinéaires, c'est-à-dire quand x<sub>AB</sub> × y<sub>AC</sub> − y<sub>AB</sub> × x<sub>AC</sub> = 0.",
-        "en": "The coordinates of three points A, B and C are in the variables <code>xA</code>, <code>yA</code>, <code>xB</code>, <code>yB</code>, <code>xC</code>, <code>yC</code>. Print <code>True</code> if A, B and C are on one line, <code>False</code> otherwise, with no <code>if</code>. Reminder: they are on one line when the vectors AB and AC are collinear, that is when x<sub>AB</sub> × y<sub>AC</sub> − y<sub>AB</sub> × x<sub>AC</sub> = 0."
+        "fr": "Les coordonnées de trois points A, B et C sont dans les variables <code>xA</code>, <code>yA</code>, <code>xB</code>, <code>yB</code>, <code>xC</code>, <code>yC</code>. Écris un test (sans <code>if</code>) qui vaut <code>True</code> si A, B et C sont alignés, <code>False</code> sinon. Rappel : ils sont alignés quand les vecteurs AB et AC sont colinéaires, c'est-à-dire quand x<sub>AB</sub> × y<sub>AC</sub> − y<sub>AB</sub> × x<sub>AC</sub> = 0.",
+        "en": "The coordinates of three points A, B and C are in the variables <code>xA</code>, <code>yA</code>, <code>xB</code>, <code>yB</code>, <code>xC</code>, <code>yC</code>. Write a test (no <code>if</code>) whose value is <code>True</code> if A, B and C are on one line, <code>False</code> otherwise. Reminder: they are on one line when the vectors AB and AC are collinear, that is when x<sub>AB</sub> × y<sub>AC</sub> − y<sub>AB</sub> × x<sub>AC</sub> = 0."
       },
       "starter": {
         "fr": "# xA, yA, xB, yB, xC, yC sont déjà définies\n",
@@ -209,11 +209,11 @@
           "en": "Store them in four variables <code>xAB</code>, <code>yAB</code>, <code>xAC</code>, <code>yAC</code>: the formula will be much easier to read."
         },
         {
-          "fr": "Affiche directement le test <code>xAB * yAC - yAB * xAC == 0</code>.",
-          "en": "Print the test <code>xAB * yAC - yAB * xAC == 0</code> directly."
+          "fr": "Termine par le test <code>xAB * yAC - yAB * xAC == 0</code>, seul sur sa ligne.",
+          "en": "End with the test <code>xAB * yAC - yAB * xAC == 0</code>, alone on its line."
         }
       ],
-      "solution": "xAB = xB - xA\nyAB = yB - yA\nxAC = xC - xA\nyAC = yC - yA\nprint(xAB * yAC - yAB * xAC == 0)",
+      "solution": "xAB = xB - xA\nyAB = yB - yA\nxAC = xC - xA\nyAC = yC - yA\nxAB * yAC - yAB * xAC == 0",
       "after": {
         "fr": "Avec des coordonnées décimales, ce test d'égalité peut échouer à cause des arrondis (souviens-toi : 0.1 + 0.2 == 0.3 est faux).",
         "en": "With decimal coordinates, this equality test can fail because of rounding (remember: 0.1 + 0.2 == 0.3 is false)."

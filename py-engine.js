@@ -336,15 +336,16 @@ def _ns():
     return ns
 
 def _console(src, ns, out):
+    # Console semantics: like typing each line after >>>, the value of every
+    # top-level expression is shown, so print() is only needed inside programs.
     tree = ast.parse(src, "<code>", "exec")
-    last = None
-    if tree.body and isinstance(tree.body[-1], ast.Expr):
-        last = tree.body.pop()
-    exec(compile(tree, "<code>", "exec"), ns)
-    if last is not None:
-        val = eval(compile(ast.Expression(last.value), "<code>", "eval"), ns)
-        if val is not None:
-            out.write(repr(val) + "\n")
+    for node in tree.body:
+        if isinstance(node, ast.Expr):
+            val = eval(compile(ast.Expression(node.value), "<code>", "eval"), ns)
+            if val is not None:
+                out.write(repr(val) + "\n")
+        else:
+            exec(compile(ast.Module(body=[node], type_ignores=[]), "<code>", "exec"), ns)
 
 def _run(code, setup=""):
     ns = _ns()
@@ -505,7 +506,7 @@ def _check(code, tests, require, forbid):
                     try:
                         if t.get("setup"):
                             exec(compile(t["setup"], "<setup>", "exec"), ns)
-                        exec(compile(code, "<code>", "exec"), ns)
+                        _console(code, ns, out)
                         if t.get("call"):
                             got = eval(compile(t["call"], "<test>", "eval"), ns)
                             row["got"] = repr(got)
@@ -542,7 +543,7 @@ def _expect(code, tests):
                     try:
                         if t.get("setup"):
                             exec(compile(t["setup"], "<setup>", "exec"), ns)
-                        exec(compile(code, "<code>", "exec"), ns)
+                        _console(code, ns, out)
                         if t.get("call"):
                             v = eval(compile(t["call"], "<test>", "eval"), ns)
                             r = repr(v)

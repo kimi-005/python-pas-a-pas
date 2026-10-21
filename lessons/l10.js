@@ -20,7 +20,7 @@
         ["import math", { fr: "tout, mais on écrit math.sqrt(36) : on voit de quel module vient la fonction", en: "everything, but you write math.sqrt(36): you can see which module it comes from" }],
         ["from math import sqrt as r", { fr: "sqrt, renommée r : r(36)", en: "sqrt, renamed r: r(36)" }]
       ] },
-    { t: "code", code: "from math import sqrt\nprint(sqrt(36))\nprint(cos(0))" },
+    { t: "code", code: "from math import sqrt\nsqrt(36)\ncos(0)" },
     { t: "p",
       fr: "Lance ce code : <code>cos</code> n'a pas été importée, Python répond <code>NameError</code>. Corrige la première ligne pour que tout marche.",
       en: "Run this code: <code>cos</code> wasn't imported, so Python answers <code>NameError</code>. Fix the first line so everything works." },
@@ -36,7 +36,7 @@
         ["floor(x)", { fr: "partie entière", en: "floor (integer part)" }],
         ["gcd(a, b)", { fr: "PGCD de a et b", en: "greatest common divisor" }]
       ] },
-    { t: "code", code: "from math import *\nprint(pi)\nprint(cos(pi))\nprint(exp(1))\nprint(gcd(12, 18))" },
+    { t: "code", code: "from math import *\npi\ncos(pi)\nexp(1)\ngcd(12, 18)" },
 
     { t: "h", fr: "Le module random", en: "The random module" },
     { t: "table",
@@ -47,7 +47,7 @@
         ["uniform(a, b)", { fr: "un flottant au hasard entre a et b", en: "a random float between a and b" }],
         ["choice(L)", { fr: "un élément de la liste L au hasard", en: "a random element of the list L" }]
       ] },
-    { t: "code", code: "from random import *\nprint(random())\nprint(randint(1, 6))\nprint(choice([\"pile\", \"face\"]))" },
+    { t: "code", code: "from random import *\nrandom()\nrandint(1, 6)\nchoice([\"pile\", \"face\"])" },
     { t: "p",
       fr: "Relance plusieurs fois : les résultats changent à chaque exécution.",
       en: "Run it several times: the results change every time." },

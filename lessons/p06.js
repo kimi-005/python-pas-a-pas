@@ -25,7 +25,7 @@
     },
     {
       "t": "code",
-      "code": "def carre(x):\n    return x ** 2\n\ndef cube(x):\n    return x ** 3\n\ndef appliquer(f, x):\n    return f(x)\n\nprint(appliquer(carre, 3))\nprint(appliquer(cube, 3))"
+      "code": "def carre(x):\n    return x ** 2\n\ndef cube(x):\n    return x ** 3\n\ndef appliquer(f, x):\n    return f(x)\n\nappliquer(carre, 3)\nappliquer(cube, 3)"
     },
     {
       "t": "h",

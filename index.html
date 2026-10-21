@@ -1282,6 +1282,7 @@ textarea.code-out { background: var(--code-bg); word-break: break-all; }
       withVars: "avec ",
       shouldPrint: "doit afficher",
       shouldReturn: "doit renvoyer",
+      shouldBe: "doit valoir",
       saved: "Ta progression est enregistrée dans ce navigateur.",
       track: "Parcours",
       lessonsNav: "Leçons",
@@ -1467,6 +1468,7 @@ textarea.code-out { background: var(--code-bg); word-break: break-all; }
       withVars: "with ",
       shouldPrint: "should print",
       shouldReturn: "should return",
+      shouldBe: "should be",
       saved: "Your progress is saved in this browser.",
       track: "Track",
       lessonsNav: "Lessons",
@@ -2516,7 +2518,7 @@ textarea.code-out { background: var(--code-bg); word-break: break-all; }
   /* ================= code exercises ================= */
   function testLabel(test) {
     if (test.label) return L(test.label);
-    if (test.call) return test.call;
+    if (test.call) return (test.setup && !/^[A-Za-z_]\w*\s*\(/.test(test.call) ? t("withVars") + test.setup.replace(/\n/g, ", ") + (lang === "fr" ? " : " : ": ") : "") + test.call;
     return t("withVars") + test.setup.replace(/\n/g, ", ");
   }
   function testExpected(test) {
@@ -2545,7 +2547,7 @@ textarea.code-out { background: var(--code-bg); word-break: break-all; }
         var li = h("li", { class: r ? (r.ok ? "ok" : "bad") : "" });
         li.appendChild(h("span", { class: "t-icon", text: r ? (r.ok ? "✓" : "✗") : "•" }));
         var body = h("div");
-        var verb = test.call ? t("shouldReturn") : t("shouldPrint");
+        var verb = test.call ? (/^[A-Za-z_]\w*\s*\(/.test(test.call) ? t("shouldReturn") : t("shouldBe")) : t("shouldPrint");
         if (test.desc) body.appendChild(h("span", { text: L(test.desc) }));
         else {
           body.appendChild(h("code", { text: testLabel(test) }));

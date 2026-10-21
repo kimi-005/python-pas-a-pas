@@ -10,7 +10,7 @@
     { t: "p",
       fr: "Comme dans le programme <code>prog2</code> de ton cours (<code>return a, b</code>), une fonction peut renvoyer plusieurs valeurs séparées par des virgules. Python les regroupe dans un <strong>tuple</strong>, qu'on peut « déballer » dans plusieurs variables.",
       en: "Like <code>prog2</code> in your course (<code>return a, b</code>), a function can return several values separated by commas. Python groups them in a <strong>tuple</strong>, which you can unpack into several variables." },
-    { t: "code", code: "def prog2(a):\n    b = 0\n    while a < 20:\n        a = 1.5 * a\n        b = b + 1\n    return a, b\n\nprint(prog2(6))\nvaleur, tours = prog2(6)\nprint(\"valeur :\", valeur)\nprint(\"tours :\", tours)" },
+    { t: "code", code: "def prog2(a):\n    b = 0\n    while a < 20:\n        a = 1.5 * a\n        b = b + 1\n    return a, b\n\nprog2(6)\nvaleur, tours = prog2(6)\nprint(\"valeur :\", valeur)\nprint(\"tours :\", tours)" },
 
     { t: "h", fr: "Des fonctions qui répondent vrai ou faux", en: "Functions that answer true or false" },
     { t: "p",
@@ -20,7 +20,7 @@
     { t: "note",
       fr: "<strong>Sortir tôt :</strong> un <code>return</code> placé dans une boucle arrête tout de suite la fonction. C'est pratique pour répondre <code>False</code> dès qu'on trouve un contre-exemple.",
       en: "<strong>Leaving early:</strong> a <code>return</code> inside a loop stops the function immediately. That's handy to answer <code>False</code> as soon as you find a counterexample." },
-    { t: "code", code: "def tous_positifs(L):\n    for x in L:\n        if x < 0:\n            return False\n    return True\n\nprint(tous_positifs([3, 8, 1]))\nprint(tous_positifs([3, -8, 1]))" },
+    { t: "code", code: "def tous_positifs(L):\n    for x in L:\n        if x < 0:\n            return False\n    return True\n\ntous_positifs([3, 8, 1])\ntous_positifs([3, -8, 1])" },
 
     { t: "h", fr: "Boucles imbriquées", en: "Nested loops" },
     { t: "p",

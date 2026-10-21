@@ -18,19 +18,22 @@
         ["range(2, 15, 3)", "2, 5, 8, 11, 14", { fr: "de 3 en 3", en: "in steps of 3" }],
         ["range(5, 2, -1)", "5, 4, 3", { fr: "à reculons", en: "counting down" }]
       ] },
-    { t: "code", code: "print(list(range(4)))\nprint(list(range(2, 5)))\nprint(list(range(2, 15, 3)))" },
+    { t: "code", code: "list(range(4))\nlist(range(2, 5))\nlist(range(2, 15, 3))" },
 
     { t: "h", fr: "La boucle for", en: "The for loop" },
     { t: "p",
       fr: "<code>for k in range(4):</code> donne successivement à k les valeurs 0, 1, 2, 3, et exécute le bloc décalé à chaque fois.",
       en: "<code>for k in range(4):</code> gives k the values 0, 1, 2, 3 in turn, and runs the indented block each time." },
     { t: "code", code: "for k in range(4):\n    print(k)" },
+    { t: "note",
+      fr: "Ici <code>print</code> est utile : on veut voir k à chaque tour, et dans un bloc la valeur d'une ligne ne s'affiche pas toute seule.",
+      en: "Here <code>print</code> is useful: we want to see k on every pass, and inside a block the value of a line is not shown on its own." },
 
     { t: "h", fr: "Exemple : la somme 1 + 2 + … + 100", en: "Example: the sum 1 + 2 + … + 100" },
     { t: "compare",
       algo: { fr: "s ← 0\nPour k allant de 1 à 100 :\n    s ← s + k\nFin Pour\nAfficher s",
               en: "s ← 0\nFor k from 1 to 100:\n    s ← s + k\nEnd For\nDisplay s" },
-      code: "s = 0\nfor k in range(1, 101):\n    s = s + k\nprint(s)",
+      code: "s = 0\nfor k in range(1, 101):\n    s = s + k\ns",
       run: true,
       caption: { fr: "« k allant de 1 à 100 » s'écrit <code>range(1, 101)</code> : la borne de droite est exclue, donc on met 101.",
                  en: "\"k from 1 to 100\" is <code>range(1, 101)</code>: the right bound is excluded, so we write 101." } },
@@ -73,25 +76,25 @@
         "en": "The sum of the first odd numbers"
       },
       "prompt": {
-        "fr": "La variable <code>n</code> est déjà définie (n ≥ 1). Complète le programme pour qu'il affiche S = 1 + 3 + 5 + … + (2n − 1), la somme des n premiers nombres impairs.",
-        "en": "The variable <code>n</code> is already defined (n ≥ 1). Fill in the program so that it prints S = 1 + 3 + 5 + … + (2n − 1), the sum of the first n odd numbers."
+        "fr": "La variable <code>n</code> est déjà définie (n ≥ 1). Complète le programme pour qu'il calcule S = 1 + 3 + 5 + … + (2n − 1), la somme des n premiers nombres impairs.",
+        "en": "The variable <code>n</code> is already defined (n ≥ 1). Fill in the program so that it computes S = 1 + 3 + 5 + … + (2n − 1), the sum of the first n odd numbers."
       },
       "template": {
-        "fr": "# n est déjà définie\nS = {{0}}\nfor k in range({{1}}, {{n + 1}}):\n    S = S + {{2 * k - 1}}\nprint(S)",
-        "en": "# n is already defined\nS = {{0}}\nfor k in range({{1}}, {{n + 1}}):\n    S = S + {{2 * k - 1}}\nprint(S)"
+        "fr": "# n est déjà définie\nS = {{0}}\nfor k in range({{1}}, {{n + 1}}):\n    S = S + {{2 * k - 1}}",
+        "en": "# n is already defined\nS = {{0}}\nfor k in range({{1}}, {{n + 1}}):\n    S = S + {{2 * k - 1}}"
       },
       "tests": [
         {
           "setup": "n = 1",
-          "stdout": "1"
+          "call": "S", "expect": "1"
         },
         {
           "setup": "n = 4",
-          "stdout": "16"
+          "call": "S", "expect": "16"
         },
         {
           "setup": "n = 10",
-          "stdout": "100"
+          "call": "S", "expect": "100"
         }
       ],
       "hints": [
@@ -111,43 +114,43 @@
     },
     { t: "code", id: "l05-c1",
       title: { fr: "La somme 1 + 2 + … + 100", en: "The sum 1 + 2 + … + 100" },
-      prompt: { fr: "Avec une boucle <code>for</code>, calcule et affiche 1 + 2 + 3 + … + 100.",
-                en: "Using a <code>for</code> loop, compute and print 1 + 2 + 3 + … + 100." },
+      prompt: { fr: "Avec une boucle <code>for</code>, calcule 1 + 2 + 3 + … + 100 dans la variable <code>s</code>.",
+                en: "Using a <code>for</code> loop, compute 1 + 2 + 3 + … + 100 in the variable <code>s</code>." },
       starter: { fr: "s = 0\n", en: "s = 0\n" },
-      tests: [ { stdout: "5050", label: { fr: "affiche la somme", en: "prints the sum" } } ],
+      tests: [ { call: "s", expect: "5050", label: { fr: "la somme s", en: "the sum s" } } ],
       require: ["for"],
-      hint: { fr: "<code>for k in range(1, 101):</code> puis, dans le bloc, <code>s = s + k</code>. Le <code>print</code> se place après la boucle, sans décalage.",
-              en: "<code>for k in range(1, 101):</code> then, inside the block, <code>s = s + k</code>. The <code>print</code> goes after the loop, not indented." },
-      solution: "s = 0\nfor k in range(1, 101):\n    s = s + k\nprint(s)" },
+      hint: { fr: "<code>for k in range(1, 101):</code> puis, dans le bloc, <code>s = s + k</code>. Après la boucle, s contient la somme.",
+              en: "<code>for k in range(1, 101):</code> then, inside the block, <code>s = s + k</code>. After the loop, s holds the sum." },
+      solution: "s = 0\nfor k in range(1, 101):\n    s = s + k" },
     { t: "code", id: "l05-c2",
       title: { fr: "Factorielle", en: "Factorial" },
-      prompt: { fr: "La variable <code>n</code> est définie. Affiche n! = 1 × 2 × 3 × … × n. Par convention, 0! = 1.",
-                en: "The variable <code>n</code> is defined. Print n! = 1 × 2 × 3 × … × n. By convention, 0! = 1." },
+      prompt: { fr: "La variable <code>n</code> est définie. Calcule n! = 1 × 2 × 3 × … × n dans la variable <code>p</code>. Par convention, 0! = 1.",
+                en: "The variable <code>n</code> is defined. Compute n! = 1 × 2 × 3 × … × n in the variable <code>p</code>. By convention, 0! = 1." },
       starter: { fr: "# n est déjà définie\n", en: "# n is already defined\n" },
       tests: [
-        { setup: "n = 5", stdout: "120" },
-        { setup: "n = 1", stdout: "1" },
-        { setup: "n = 10", stdout: "3628800" },
-        { setup: "n = 0", stdout: "1" }
+        { setup: "n = 5", call: "p", expect: "120" },
+        { setup: "n = 1", call: "p", expect: "1" },
+        { setup: "n = 10", call: "p", expect: "3628800" },
+        { setup: "n = 0", call: "p", expect: "1" }
       ],
       require: ["for"],
       hint: { fr: "Un accumulateur pour un produit part de 1 : <code>p = 1</code>, puis <code>p = p * k</code> pour k allant de 1 à n.",
               en: "An accumulator for a product starts at 1: <code>p = 1</code>, then <code>p = p * k</code> for k from 1 to n." },
-      solution: "p = 1\nfor k in range(1, n + 1):\n    p = p * k\nprint(p)" },
+      solution: "p = 1\nfor k in range(1, n + 1):\n    p = p * k" },
     { t: "code", id: "l05-c3",
       title: { fr: "Terme d'une suite", en: "Term of a sequence" },
-      prompt: { fr: "La suite (u<sub>n</sub>) est définie par u<sub>0</sub> = 1 et u<sub>n+1</sub> = 2u<sub>n</sub> + 1. La variable <code>n</code> est définie : affiche u<sub>n</sub>.",
-                en: "The sequence (u<sub>n</sub>) is defined by u<sub>0</sub> = 1 and u<sub>n+1</sub> = 2u<sub>n</sub> + 1. The variable <code>n</code> is defined: print u<sub>n</sub>." },
+      prompt: { fr: "La suite (u<sub>n</sub>) est définie par u<sub>0</sub> = 1 et u<sub>n+1</sub> = 2u<sub>n</sub> + 1. La variable <code>n</code> est définie : à la fin du programme, <code>u</code> doit contenir u<sub>n</sub>.",
+                en: "The sequence (u<sub>n</sub>) is defined by u<sub>0</sub> = 1 and u<sub>n+1</sub> = 2u<sub>n</sub> + 1. The variable <code>n</code> is defined: at the end of the program, <code>u</code> must hold u<sub>n</sub>." },
       starter: { fr: "# n est déjà définie\nu = 1\n", en: "# n is already defined\nu = 1\n" },
       tests: [
-        { setup: "n = 0", stdout: "1" },
-        { setup: "n = 3", stdout: "15" },
-        { setup: "n = 10", stdout: "2047" }
+        { setup: "n = 0", call: "u", expect: "1" },
+        { setup: "n = 3", call: "u", expect: "15" },
+        { setup: "n = 10", call: "u", expect: "2047" }
       ],
       require: ["for"],
       hint: { fr: "Pour passer de u<sub>0</sub> à u<sub>n</sub>, il faut appliquer la relation n fois : <code>for k in range(n):</code> puis <code>u = 2 * u + 1</code>.",
               en: "To go from u<sub>0</sub> to u<sub>n</sub>, apply the rule n times: <code>for k in range(n):</code> then <code>u = 2 * u + 1</code>." },
-      solution: "u = 1\nfor k in range(n):\n    u = 2 * u + 1\nprint(u)" }
+      solution: "u = 1\nfor k in range(n):\n    u = 2 * u + 1" }
   ],
   challenges: [
     {
@@ -158,8 +161,8 @@
         "en": "Perfect number"
       },
       "prompt": {
-        "fr": "Un entier n est <strong>parfait</strong> s'il est égal à la somme de ses diviseurs autres que lui-même. Par exemple, 6 = 1 + 2 + 3. La variable <code>n</code> (n ≥ 1) est définie : affiche <code>True</code> si n est parfait, <code>False</code> sinon.",
-        "en": "An integer n is <strong>perfect</strong> if it equals the sum of its divisors other than itself. For example, 6 = 1 + 2 + 3. The variable <code>n</code> (n ≥ 1) is defined: print <code>True</code> if n is perfect, <code>False</code> otherwise."
+        "fr": "Un entier n est <strong>parfait</strong> s'il est égal à la somme de ses diviseurs autres que lui-même. Par exemple, 6 = 1 + 2 + 3. La variable <code>n</code> (n ≥ 1) est définie : termine par un test qui vaut <code>True</code> si n est parfait, <code>False</code> sinon.",
+        "en": "An integer n is <strong>perfect</strong> if it equals the sum of its divisors other than itself. For example, 6 = 1 + 2 + 3. The variable <code>n</code> (n ≥ 1) is defined: end with a test whose value is <code>True</code> if n is perfect, <code>False</code> otherwise."
       },
       "starter": {
         "fr": "# n est déjà définie\ns = 0\n",
@@ -205,11 +208,11 @@
           "en": "A loop <code>for d in range(1, n):</code> and a test <code>if n % d == 0:</code> to add d to s."
         },
         {
-          "fr": "Après la boucle, sans décalage, affiche directement le test <code>s == n</code>.",
-          "en": "After the loop, not indented, print the test <code>s == n</code> directly."
+          "fr": "Après la boucle, sans décalage, écris le test <code>s == n</code> seul sur sa ligne.",
+          "en": "After the loop, not indented, write the test <code>s == n</code> alone on its line."
         }
       ],
-      "solution": "s = 0\nfor d in range(1, n):\n    if n % d == 0:\n        s = s + d\nprint(s == n)",
+      "solution": "s = 0\nfor d in range(1, n):\n    if n % d == 0:\n        s = s + d\ns == n",
       "after": {
         "fr": "Les nombres parfaits sont rares : 6, 28, 496, 8 128… Personne ne sait s'il en existe un impair !",
         "en": "Perfect numbers are rare: 6, 28, 496, 8,128… Nobody knows whether an odd one exists!"
@@ -223,8 +226,8 @@
         "en": "The Fibonacci sequence"
       },
       "prompt": {
-        "fr": "La suite de Fibonacci est définie par F<sub>0</sub> = 0, F<sub>1</sub> = 1 et F<sub>n+2</sub> = F<sub>n+1</sub> + F<sub>n</sub> : chaque terme est la somme des deux précédents (0, 1, 1, 2, 3, 5, 8…). La variable <code>n</code> est définie : affiche F<sub>n</sub>.",
-        "en": "The Fibonacci sequence is defined by F<sub>0</sub> = 0, F<sub>1</sub> = 1 and F<sub>n+2</sub> = F<sub>n+1</sub> + F<sub>n</sub>: each term is the sum of the two before it (0, 1, 1, 2, 3, 5, 8…). The variable <code>n</code> is defined: print F<sub>n</sub>."
+        "fr": "La suite de Fibonacci est définie par F<sub>0</sub> = 0, F<sub>1</sub> = 1 et F<sub>n+2</sub> = F<sub>n+1</sub> + F<sub>n</sub> : chaque terme est la somme des deux précédents (0, 1, 1, 2, 3, 5, 8…). La variable <code>n</code> est définie : à la fin du programme, <code>a</code> doit contenir F<sub>n</sub>.",
+        "en": "The Fibonacci sequence is defined by F<sub>0</sub> = 0, F<sub>1</sub> = 1 and F<sub>n+2</sub> = F<sub>n+1</sub> + F<sub>n</sub>: each term is the sum of the two before it (0, 1, 1, 2, 3, 5, 8…). The variable <code>n</code> is defined: at the end of the program, <code>a</code> must hold F<sub>n</sub>."
       },
       "starter": {
         "fr": "# n est déjà définie\na = 0\nb = 1\n",
@@ -233,23 +236,23 @@
       "tests": [
         {
           "setup": "n = 0",
-          "stdout": "0"
+          "call": "a", "expect": "0"
         },
         {
           "setup": "n = 1",
-          "stdout": "1"
+          "call": "a", "expect": "1"
         },
         {
           "setup": "n = 2",
-          "stdout": "1"
+          "call": "a", "expect": "1"
         },
         {
           "setup": "n = 10",
-          "stdout": "55"
+          "call": "a", "expect": "55"
         },
         {
           "setup": "n = 30",
-          "stdout": "832040"
+          "call": "a", "expect": "832040"
         }
       ],
       "require": [
@@ -269,7 +272,7 @@
           "en": "<code>for k in range(n):</code> then <code>c = a + b</code>, <code>a = b</code>, <code>b = c</code>. After n passes, a is F<sub>n</sub>."
         }
       ],
-      "solution": "a = 0\nb = 1\nfor k in range(n):\n    c = a + b\n    a = b\n    b = c\nprint(a)"
+      "solution": "a = 0\nb = 1\nfor k in range(n):\n    c = a + b\n    a = b\n    b = c"
     }
   ]
 });

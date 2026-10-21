@@ -17,13 +17,13 @@
     { t: "p",
       fr: "La liste en compréhension se lit comme en maths : « la liste des k² pour k allant de 0 à 4 ». Elle fait en une ligne ce que la boucle avec <code>append</code> fait en trois.",
       en: "A comprehension reads like maths: \"the list of k² for k from 0 to 4\". It does in one line what the loop with <code>append</code> does in three." },
-    { t: "code", code: "carres = [k ** 2 for k in range(5)]\nprint(carres)\n\nimpairs = [2 * k + 1 for k in range(6)]\nprint(impairs)" },
+    { t: "code", code: "carres = [k ** 2 for k in range(5)]\ncarres\n\nimpairs = [2 * k + 1 for k in range(6)]\nimpairs" },
 
     { t: "h", fr: "Avec une condition", en: "With a condition" },
     { t: "p",
       fr: "On peut ne garder que certains éléments en ajoutant <code>if</code> à la fin : « la liste des x de 0 à 29 tels que x est multiple de 7 ».",
       en: "You can keep only some elements by adding <code>if</code> at the end: \"the list of x from 0 to 29 such that x is a multiple of 7\"." },
-    { t: "code", code: "multiples = [x for x in range(30) if x % 7 == 0]\nprint(multiples)\n\nnotes = [12, 8, 15, 9, 17]\nprint([n for n in notes if n >= 10])" },
+    { t: "code", code: "multiples = [x for x in range(30) if x % 7 == 0]\nmultiples\n\nnotes = [12, 8, 15, 9, 17]\n[n for n in notes if n >= 10]" },
     { t: "note",
       fr: "Pour les images d'une fonction : <code>Y = [f(x) for x in X]</code>. C'est l'écriture la plus courte pour préparer un graphique.",
       en: "For the images of a function: <code>Y = [f(x) for x in X]</code>. It's the shortest way to prepare a graph." },
@@ -41,7 +41,7 @@
         ["L[::2]", { fr: "[10, 30, 50] : un sur deux", en: "[10, 30, 50]: every other one" }],
         ["L[::-1]", { fr: "[50, 40, 30, 20, 10] : à l'envers", en: "[50, 40, 30, 20, 10]: reversed" }]
       ] },
-    { t: "code", code: "L = [10, 20, 30, 40, 50]\nprint(L[1:3])\nprint(L[::-1])\nprint(L[-2:])" },
+    { t: "code", code: "L = [10, 20, 30, 40, 50]\nL[1:3]\nL[::-1]\nL[-2:]" },
 
     { t: "h", fr: "Parcourir avec les index", en: "Looping over indexes" },
     { t: "p",

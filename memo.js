@@ -52,7 +52,7 @@ window.PY_MEMO = [
     { code: "def div(a, b):\n    return a // b, a % b", fr: "renvoyer plusieurs valeurs (un tuple)", en: "return several values (a tuple)" },
     { code: "q, r = div(23, 7)", fr: "récupérer les deux valeurs : q = 3 et r = 2", en: "unpack both values: q = 3 and r = 2" },
     { code: "def est_pair(n):\n    return n % 2 == 0", fr: "fonction booléenne : renvoie True ou False", en: "boolean function: returns True or False" },
-    { code: "print(\"le chat\")", fr: "affiche à l'écran (print ne renvoie rien)", en: "prints on screen (print returns nothing)" },
+    { code: "print(\"le chat\")", fr: "affiche un message à l'écran (print ne renvoie rien). Dans une fonction, préfère return ; dans la console, la valeur d'une ligne s'affiche seule", en: "displays a message on screen (print returns nothing). In a function, prefer return; in the console, a line's value is shown on its own" },
     { code: "abs(-3.4)", fr: "valeur absolue → 3.4", en: "absolute value → 3.4" },
     { code: "round(22 / 7, 2)", fr: "arrondi à 2 chiffres après la virgule → 3.14", en: "rounded to 2 decimal places → 3.14" },
     { code: "max(1, 5.3, -1)", fr: "le plus grand (min : le plus petit) → 5.3", en: "the largest (min: the smallest) → 5.3" },

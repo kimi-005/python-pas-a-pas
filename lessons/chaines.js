@@ -7,7 +7,7 @@
   },
   blocks: [
     { t: "h", fr: "Index et découpage", en: "Indexes and slicing" },
-    { t: "code", code: "mot = \"python\"\nprint(mot[0])\nprint(mot[-1])\nprint(mot[1:4])\nprint(mot[::-1])\nprint(len(mot))" },
+    { t: "code", code: "mot = \"python\"\nmot[0]\nmot[-1]\nmot[1:4]\nmot[::-1]\nlen(mot)" },
     { t: "note",
       fr: "Une chaîne ne peut pas être modifiée : <code>mot[0] = \"P\"</code> provoque une erreur. On fabrique une <strong>nouvelle</strong> chaîne, par exemple <code>\"P\" + mot[1:]</code>.",
       en: "A string can't be changed: <code>mot[0] = \"P\"</code> causes an error. Build a <strong>new</strong> string instead, for example <code>\"P\" + mot[1:]</code>." },
@@ -16,7 +16,7 @@
     { t: "p",
       fr: "<code>for c in mot:</code> donne les lettres une par une. On construit souvent une nouvelle chaîne en partant de <code>\"\"</code> (la chaîne vide) et en ajoutant des lettres avec <code>+</code>.",
       en: "<code>for c in mot:</code> gives the letters one by one. You often build a new string starting from <code>\"\"</code> (the empty string) and adding letters with <code>+</code>." },
-    { t: "code", code: "mot = \"bonjour\"\nresultat = \"\"\nfor c in mot:\n    resultat = c + resultat\nprint(resultat)" },
+    { t: "code", code: "mot = \"bonjour\"\nresultat = \"\"\nfor c in mot:\n    resultat = c + resultat\nresultat" },
     { t: "p",
       fr: "Ici, chaque lettre est ajoutée <em>devant</em> : on obtient le mot à l'envers.",
       en: "Here each letter is added <em>in front</em>: you get the word backwards." },

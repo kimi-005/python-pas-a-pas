@@ -10,7 +10,7 @@
     { t: "p",
       fr: "Pour une suite définie par récurrence, on part de u<sub>0</sub> et on applique la relation n fois. Exemple : u<sub>0</sub> = 5 et u<sub>n+1</sub> = 0,8u<sub>n</sub> + 2.",
       en: "For a sequence defined by recurrence, start from u<sub>0</sub> and apply the rule n times. Example: u<sub>0</sub> = 5 and u<sub>n+1</sub> = 0.8u<sub>n</sub> + 2." },
-    { t: "code", code: "def u(n):\n    terme = 5\n    for k in range(n):\n        terme = 0.8 * terme + 2\n    return terme\n\nprint(u(1), u(2), u(10), u(50))" },
+    { t: "code", code: "def u(n):\n    terme = 5\n    for k in range(n):\n        terme = 0.8 * terme + 2\n    return terme\n\nu(1), u(2), u(10), u(50)" },
     { t: "p",
       fr: "Les termes semblent se rapprocher de 10 : on conjecture que la suite converge vers 10.",
       en: "The terms seem to get closer to 10: we conjecture that the sequence converges to 10." },
@@ -19,7 +19,7 @@
     { t: "p",
       fr: "Pour S<sub>n</sub> = u<sub>0</sub> + u<sub>1</sub> + … + u<sub>n</sub>, on utilise un accumulateur qui part de 0. Exemple : S<sub>n</sub> = 1 + ½ + ¼ + … + (½)<sup>n</sup>.",
       en: "For S<sub>n</sub> = u<sub>0</sub> + u<sub>1</sub> + … + u<sub>n</sub>, use an accumulator starting at 0. Example: S<sub>n</sub> = 1 + ½ + ¼ + … + (½)<sup>n</sup>." },
-    { t: "code", code: "def S(n):\n    s = 0\n    for k in range(n + 1):\n        s = s + 0.5 ** k\n    return s\n\nprint(S(3), S(10), S(30))" },
+    { t: "code", code: "def S(n):\n    s = 0\n    for k in range(n + 1):\n        s = s + 0.5 ** k\n    return s\n\nS(3), S(10), S(30)" },
 
     { t: "h", fr: "Encadrer une solution : la dichotomie", en: "Bracketing a solution: bisection" },
     { t: "p",
@@ -28,7 +28,7 @@
     { t: "compare",
       algo: { fr: "Tant que b − a > p :\n    m ← (a + b) / 2\n    Si f(a) × f(m) ≤ 0 :\n        b ← m\n    Sinon :\n        a ← m\nFin Tant que",
               en: "While b − a > p:\n    m ← (a + b) / 2\n    If f(a) × f(m) ≤ 0:\n        b ← m\n    Else:\n        a ← m\nEnd While" },
-      code: "def f(x):\n    return x ** 3 - x - 1\n\na = 1\nb = 2\nwhile b - a > 0.001:\n    m = (a + b) / 2\n    if f(a) * f(m) <= 0:\n        b = m\n    else:\n        a = m\nprint(a, b)",
+      code: "def f(x):\n    return x ** 3 - x - 1\n\na = 1\nb = 2\nwhile b - a > 0.001:\n    m = (a + b) / 2\n    if f(a) * f(m) <= 0:\n        b = m\n    else:\n        a = m\na, b",
       run: true,
       caption: { fr: "f(a) × f(m) ≤ 0 signifie que f(a) et f(m) sont de signes contraires : la solution est entre a et m.",
                  en: "f(a) × f(m) ≤ 0 means f(a) and f(m) have opposite signs: the solution lies between a and m." } },
@@ -37,7 +37,7 @@
     { t: "p",
       fr: "On répète une expérience un grand nombre de fois avec <code>random</code>, et on observe la fréquence d'un événement. Exemple : on lance deux dés et on compte combien de fois la somme vaut 7.",
       en: "Repeat an experiment many times with <code>random</code>, and look at how often an event happens. Example: roll two dice and count how often the sum is 7." },
-    { t: "code", code: "from random import randint\n\nn = 10000\nc = 0\nfor k in range(n):\n    if randint(1, 6) + randint(1, 6) == 7:\n        c = c + 1\nprint(c / n)\nprint(6 / 36)" }
+    { t: "code", code: "from random import randint\n\nn = 10000\nc = 0\nfor k in range(n):\n    if randint(1, 6) + randint(1, 6) == 7:\n        c = c + 1\nc / n\n6 / 36" }
   ],
   exercises: [
     { t: "predict", id: "l11-p1",
